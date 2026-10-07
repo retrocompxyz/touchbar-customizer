@@ -13,12 +13,6 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Changed
 - Language is stored in `config.json` (`settings.language`).
 
-## [0.17.3] — 2026-10-02
-
-### Changed
-- The About window now shows only the name, version and copyright (the
-  "Autor: RetroComp" credit line was removed).
-
 ## [0.17.2] — 2026-10-02
 
 ### Fixed
