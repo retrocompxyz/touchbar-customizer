@@ -3,6 +3,22 @@
 All notable changes to the TouchBar Customizer project.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.18.1] — 2026-10-20
+
+### Fixed
+- Switching applications from the **Dock** widget was unreliable, especially
+  with full-screen apps and multiple Spaces. Activation now uses
+  `NSWorkspace.openApplication` with a fallback and a retry, and also
+  un-minimizes the target.
+
+### Changed
+- The same robust activation is used by the **AirDrop** widget and by
+  "shortcut in app" actions.
+- App switches that happen during the frontmost cooldown are retried instead of
+  being silently lost.
+- The bar is only rebuilt when the profile actually changes; switching between
+  apps that share a profile just re-presents it.
+
 ## [0.18.0] — 2026-10-02
 
 ### Added
