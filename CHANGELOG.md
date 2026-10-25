@@ -3,6 +3,68 @@
 All notable changes to the TouchBar Customizer project.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.19.8] — 2026-10-25
+
+### Fixed
+- Display automatic brightness now uses the correct CoreBrightness setting
+  (`CBAutoBrightnessEnabled`) and actually toggles.
+- Auto-brightness and auto-illumination toggles show crossed-out icons when off.
+
+### Added
+- Sliders panel: automatic brightness (display and keyboard) toggles, styled
+  like the mute button. The mute button moved to the left of the volume slider.
+
+## [0.19.7] — 2026-10-25
+
+### Added
+- Automatic brightness toggles in the sliders panel (display + keyboard).
+- Keyboard backlight uses the committing
+  `setBrightness:fadeSpeed:commit:forKeyboard:` API.
+
+## [0.19.6] — 2026-10-25
+
+### Fixed
+- Safari tabs: only `AXTabButton` elements outside web content are used, so
+  web-app tabs (e.g. Power BI) are never shown or selected.
+- The tab list no longer disappears when a single read fails.
+
+## [0.19.5] — 2026-10-25
+
+### Fixed
+- Safari tab list and switching now use Accessibility (AX) instead of
+  AppleScript; tab URLs are resolved best-effort for favicons.
+- Keyboard backlight uses a 64-bit keyboard identifier.
+
+## [0.19.4] — 2026-10-20
+
+### Fixed
+- Favicons: browser User-Agent, `data:` URI support, declared-icon priority,
+  `mask-icon` skipped — much better coverage.
+
+## [0.19.3] — 2026-10-20
+
+### Changed
+- Two-line tab titles (character wrapping); 16 px favicons.
+- Favicon pipeline: direct files → page `<link rel="icon">` → Google / DuckDuckGo.
+
+## [0.19.2] — 2026-10-20
+
+### Fixed
+- Tab titles wrap/truncate correctly; broader favicon sources.
+
+## [0.19.1] — 2026-10-20
+
+### Changed
+- Native `NSScrubber` tab strip (horizontal scrolling) with smaller tiles.
+
+## [0.19.0] — 2026-10-20
+
+### Added
+- **Safari profile**: Dock on the left, open tabs in the centre, sliders /
+  battery / clock on the right.
+- New `safariTabs` widget (tap to switch tabs, favicons).
+- "Safari tabs" type in the editor; Safari added to the default seed.
+
 ## [0.18.1] — 2026-10-20
 
 ### Fixed
