@@ -1,5 +1,10 @@
 # TouchBar Customizer
 
+[![Release](https://img.shields.io/github/v/release/retrocompxyz/touchbar-customizer?label=release)](https://github.com/retrocompxyz/touchbar-customizer/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/retrocompxyz/touchbar-customizer/total?label=downloads)](https://github.com/retrocompxyz/touchbar-customizer/releases)
+[![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-orange)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-macOS%2013%2B%20%C2%B7%20Touch%20Bar-blue)](#requirements)
+
 A macOS menu bar app that turns the Touch Bar into a fully customisable,
 per-application toolbar. Define your own buttons, icons and shortcuts for every
 app — the Touch Bar follows whatever is in front, and falls back to a default
@@ -12,9 +17,17 @@ Get the latest version from the [Releases page](https://github.com/retrocompxyz/
 - **`TouchBarCustomizer-<version>-universal.dmg`** — for Apple Silicon **and** Intel Macs.
 - **`TouchBarCustomizer-<version>-arm64.dmg`** — Apple Silicon only (smaller download).
 
+SHA256 checksums are attached to every release as
+`TouchBarCustomizer-<version>-checksums.txt`.
+
 ## Requirements
 
-- A MacBook **with a Touch Bar** (the Touch Bar itself cannot be added to Macs without one).
+- A MacBook Pro with a **physical Touch Bar**:
+  - 13-inch, 2016–2022 (including the M1/M2 models),
+  - 15-inch, 2016–2019,
+  - 16-inch, 2019.
+- The Touch Bar **cannot be added** to Macs without one, and **Sidecar does not
+  provide a Touch Bar**.
 - macOS 13 (Ventura) or newer.
 - The **universal** build runs on both Apple Silicon and Intel.
 - The **arm64** build runs on Apple Silicon only.
@@ -29,12 +42,26 @@ Get the latest version from the [Releases page](https://github.com/retrocompxyz/
 > block it with a warning. Either right-click the app and choose **Open**, or run:
 >
 > ```
-> xattr -dr com.apple.quarantine "/Applications/TouchBar-Customizer.app"
+> xattr -cr "/Applications/TouchBar-Customizer.app"
 > ```
 
 > **Accessibility.** Some features (menu commands, sending shortcuts, reading the
-> Discord state) need the app to be granted **Accessibility** permission in
-> System Settings → Privacy & Security.
+> Discord state, Safari tabs) need the app to be granted **Accessibility**
+> permission in System Settings → Privacy & Security.
+
+> **Automation (Safari tabs).** The Safari tab widget reads tab titles through
+> Accessibility and resolves tab URLs with AppleScript so it can show favicons.
+> macOS may ask for **Automation** permission for Safari.
+
+## Homebrew
+
+```bash
+brew tap retrocompxyz/tap
+brew install --cask touchbar-customizer
+```
+
+The cask downloads the universal DMG. The app is not notarized; the Gatekeeper
+note above applies (the cask also prints it as a caveat).
 
 ## Screenshots
 
@@ -77,7 +104,9 @@ Get the latest version from the [Releases page](https://github.com/retrocompxyz/
   open URL, open app, menu commands, shortcut-in-app, and more.
 - **Popular shortcuts** catalog and **command palette** from any app's menu.
 - **Status widgets**: Now Playing, Battery, Wi-Fi, CPU, Dock and AirDrop.
-- **Sliders** for brightness, volume and keyboard illumination, plus mute.
+- **Safari tabs widget** with favicons and horizontal scrolling.
+- **Sliders** for brightness, volume and keyboard illumination, plus mute and
+  automatic-brightness toggles.
 - **Real Discord mute/deafen state** shown on the bar.
 - **Stateful buttons** (on/off icons).
 - **Bilingual UI**: Polish and English.
@@ -104,11 +133,33 @@ use the **default profile**.
 The configuration is plain JSON and is **hot-reloaded** while the app runs, so you
 can edit it by hand (or sync it) and the bar updates on the fly.
 
+## Troubleshooting
+
+- **“App is damaged” / cannot be opened** — see the Gatekeeper note above:
+  right-click **Open**, or `xattr -cr "/Applications/TouchBar-Customizer.app"`.
+- **Buttons do nothing** — grant **Accessibility** in System Settings → Privacy &
+  Security → Accessibility.
+- **Safari tabs are empty or have no favicons** — allow **Automation** for Safari;
+  favicons are fetched from the sites (or Google / DuckDuckGo) and cached.
+- **No bar at all** — the Touch Bar must be physically present and enabled in
+  System Settings → Keyboard → Touch Bar.
+
+## Privacy
+
+- **No telemetry, no analytics, no accounts.**
+- Safari tab titles are read locally via Accessibility; tab URLs are read via
+  AppleScript. URLs are used only to fetch favicons, which are downloaded from
+  the sites (or Google / DuckDuckGo) and cached locally.
+- The configuration stays on your Mac.
+
 ## Notes
 
 - TouchBar Customizer uses private Touch Bar APIs; those are not part of the public
   macOS SDK and may change in future system versions.
 - The app is **not notarized** by Apple (see Installation).
+- The source code is **not published**. This repository hosts the documentation
+  and release binaries; the app is licensed under PolyForm Noncommercial 1.0.0
+  (see License).
 
 ## Author
 
@@ -119,3 +170,5 @@ can edit it by hand (or sync it) and the bar updates on the fly.
 Licensed under the **PolyForm Noncommercial License 1.0.0** — free to use for
 noncommercial purposes. Commercial use and selling are not permitted; the author
 retains all commercial rights. See [LICENSE](LICENSE) for the full text.
+
+See [CHANGELOG.md](CHANGELOG.md) for the version history.
