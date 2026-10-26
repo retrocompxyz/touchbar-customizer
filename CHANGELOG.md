@@ -3,6 +3,26 @@
 All notable changes to the TouchBar Customizer project.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.19.11] — 2026-10-25
+
+### Fixed
+- Safari tabs appear immediately when returning to Safari. Tab URLs (used for
+  favicons) are now resolved in the background instead of blocking the tab list.
+
+## [0.19.10] — 2026-10-25
+
+### Fixed
+- The right side of the Safari bar (clock, battery, sliders) no longer disappears
+  when many apps are running: more space is reserved and right-side items get a
+  higher visibility priority.
+
+## [0.19.9] — 2026-10-25
+
+### Fixed
+- The Safari bar no longer overflows with a large Dock: compact 30×30 Dock
+  buttons (1 pt margins) and an adaptive tabs width based on the measured Touch
+  Bar width.
+
 ## [0.19.8] — 2026-10-25
 
 ### Fixed
