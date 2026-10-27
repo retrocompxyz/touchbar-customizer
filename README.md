@@ -161,6 +161,12 @@ can edit it by hand (or sync it) and the bar updates on the fly.
   and release binaries; the app is licensed under PolyForm Noncommercial 1.0.0
   (see License).
 
+## More from RetroComp
+
+- **NasConnector** — a menu bar app that automatically mounts SMB/NAS shares at
+  login and after the network reconnects:
+  [github.com/retrocompxyz/nas-connector](https://github.com/retrocompxyz/nas-connector)
+
 ## Author
 
 **RetroComp** — [www.retrocomp.xyz](https://retrocomp.xyz)
