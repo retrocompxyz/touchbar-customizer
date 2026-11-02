@@ -3,6 +3,19 @@
 All notable changes to the TouchBar Customizer project.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.19.12] — 2026-10-31
+
+### Fixed
+- Safari keeps the clock and the rest of the right side fully visible when the
+  tabs strip is present (the tabs strip is no longer the principal item).
+- Safari tabs stay visible when many apps are running: the tabs strip has high
+  visibility priority and the width budget reserves the right side, the control
+  strip and item spacing.
+
+### Changed
+- The Touch Bar Dock is now a horizontally scrolling strip. Up to nine app icons
+  are visible and more apps are reachable by scrolling, in every profile.
+
 ## [0.19.11] — 2026-10-25
 
 ### Fixed
